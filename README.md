@@ -18,7 +18,7 @@ Die .tex-Datei wird immer im aktuellen PWD geschrieben.
 # Abhängigkeiten
 
 ```console
-sudo apt-get install whiptail latexmk xdg-utils
+sudo apt-get install whiptail latexmk xdg-utils texlive-full
 sudo cpan -i Term::ANSIColor
 sudo cpan -i UI::Dialog
 ```
