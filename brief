@@ -43,7 +43,6 @@ sub ok ($) {
 	print color("green").$var.color("reset")."\n";
 }
 
-
 sub yesno ($) {
 	my $text = shift;
 	msg $text;
@@ -450,18 +449,15 @@ EOF
 		add_to_letter(\$letter, "Unterschrift", $par{sender_name});
 	}
 
-
 	if(exists($sender_daten{email})) {
 		add_to_letter(\$letter, "InternetZeileA", $sender_daten{email});
 	}
-
 
 	my $adress_zeile = 'A';
 	if(exists($sender_daten{telefon}) && length($sender_daten{telefon})) {
 		add_to_letter(\$letter, "TelefonZeile$adress_zeile", "\\Telefon{".phone_number($sender_daten{telefon})."}");
 		$adress_zeile++;
 	}
-
 
 	my @whattoadd = ();
 	if($options{dontask}) {
