@@ -47,6 +47,16 @@ zu kopieren. Dokumente werden dann ins Home-Verzeichnis geschrieben.
 echo "Mein Name" > ~/.defaultnamebrief
 ```
 
+# Standard-Editor einrichten
+
+Es wird der Editor aus der Variable `$EDITOR` genutzt. In der `.bashrc` kann man diese Variable ändern und z.B. mit
+
+```console
+EDITOR=kate
+```
+
+den ganzen Prozess über kate und damit über die GUI machen.
+
 # Video
 
 https://www.youtube.com/watch?v=kP5sorq1hFU&feature=youtu.be
