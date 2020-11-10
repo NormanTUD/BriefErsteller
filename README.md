@@ -39,7 +39,13 @@ Dazu reicht es,
 sudo cp BriefErsteller.desktop /usr/share/applications
 ```
 
-zu kopieren.
+zu kopieren. Dokumente werden dann ins Home-Verzeichnis geschrieben.
+
+# Default-Absendernamen einrichten
+
+```console
+echo "Mein Name" > ~/.defaultnamebrief
+```
 
 # Video
 
