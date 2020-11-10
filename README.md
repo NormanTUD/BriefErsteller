@@ -14,17 +14,32 @@ me@mymachine:~$ perl brief
 ```
 Die .tex-Datei wird immer im aktuellen PWD geschrieben.
 
+
 # Abhängigkeiten
 
-> sudo cpan -i Term::ANSIColor
-
-> sudo cpan -i UI::Dialog
-
-> sudo aptitude install whiptail latexmk xdg-utils
-oder
-> sudo apt-get install whiptail latexmk xdg-utils
+```console
+sudo apt-get install whiptail latexmk xdg-utils
+sudo cpan -i Term::ANSIColor
+sudo cpan -i UI::Dialog
+```
 
 Für LaTeX wird das Paket g-brief benötigt (https://ctan.org/pkg/g-brief?lang=de).
+
+# Skript überall lauffähig machen
+
+```console
+sudo cp brief /usr/local/bin
+brief
+```
+
+Um das Skript über die GUI aufzurufen, kann man die `BriefErsteller.desktop` nehmen und sie z.\,B. ins KDE-Menü einfügen.
+Dazu reicht es,
+
+```console
+sudo cp BriefErsteller.desktop /usr/share/applications
+```
+
+zu kopieren.
 
 # Video
 

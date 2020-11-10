@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=
+Exec=/usr/bin/brief
+GenericName=Erstellt LaTeX-Briefe
+Icon=stock_mail-send
+Name=BriefErsteller
+NoDisplay=false
+Path[$e]=
+StartupNotify=true
+Terminal=1
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
