@@ -9,6 +9,20 @@ use File::Copy;
 
 my $name_and_version;
 my $d;
+my $EDITOR = $ENV{EDITOR};
+if(!$EDITOR) {
+	system("which kate");
+	if($? == 0) {
+		$EDITOR = "kate";
+	} else {
+		system("which gedit");
+		if($? == 0) {
+			$EDITOR = "gedit";
+		} else {
+			$EDITOR = "vim";
+		}
+	}
+}
 
 BEGIN {
 	$name_and_version = "Briefersteller v. 4.22";
@@ -193,7 +207,7 @@ EOF
 		$tmp_file = './.tmp/letter_tmp_'.rand().".tex";
 	}
 
-	system("$ENV{EDITOR} $tmp_file");
+	system("$EDITOR $tmp_file");
 	my $letter_main_text = read_file_chomp($tmp_file);
 	unlink $tmp_file;
 
@@ -219,7 +233,7 @@ EOF
 		my @whattodo = ();
 		if($options{dontask}) {
 			if($options{edit}) {
-				push @whattodo, $ENV{EDITOR};
+				push @whattodo, $EDITOR;
 			}
 
 			if($options{compileandopen}) {
@@ -229,14 +243,14 @@ EOF
 			push @whattodo, $d->checklist(
 				text => 'Was soll ich noch tun?',
 				list => [
-					$ENV{EDITOR}, [ "Ganzen Brief nochmal in $ENV{EDITOR} oeffnen", !!$options{edit} ],
+					$EDITOR, [ "Ganzen Brief nochmal in $EDITOR oeffnen", !!$options{edit} ],
 					'compileandopen', [ 'Brief kompilieren und öffnen', !!$options{compileandopen} ]
 				]
 			);
 		}
 
-		if (grep($ENV{EDITOR} eq $_, @whattodo)) {
-			system("$ENV{EDITOR} $dateiname")
+		if (grep($EDITOR eq $_, @whattodo)) {
+			system("$EDITOR $dateiname")
 		}
 
 		if (grep('compileandopen' eq $_, @whattodo)) {
@@ -520,7 +534,7 @@ $name_and_version
 --Sender="Name"                         Sendername
 --Betreff="Betreff"                     Betreff
 --Dateiname="filename"                  Dateiname ohne .tex
---edit					Startet nach Erstellung automatisch $ENV{EDITOR}
+--edit					Startet nach Erstellung automatisch $EDITOR
 --noedit				Startet keinen Editor und fragt auch nicht danach
 --compileandopen			Startet direkt einen Kompilierungsvorgang und öffnet die entstandene PDF
 --nocompileandopen			Startet keinen Kompilierungsvorgang und fragt auch nicht danach
