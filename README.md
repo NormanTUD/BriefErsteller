@@ -8,7 +8,11 @@ Ich würde empfehlen, das Programm nach
 
 /bin/brief
 
-zu packen, um es überall aufrufen zu können. Die .tex-Datei wird immer im aktuellen PWD geschrieben.
+zu packen, um es überall aufrufen zu können. Weil es sich um ein Perlskript handelt, erfolgt der Aufruf mit:
+```console
+me@mymachine:~$ perl brief
+```
+Die .tex-Datei wird immer im aktuellen PWD geschrieben.
 
 # Abhängigkeiten
 
@@ -17,6 +21,10 @@ zu packen, um es überall aufrufen zu können. Die .tex-Datei wird immer im aktu
 > sudo cpan -i UI::Dialog
 
 > sudo aptitude install whiptail latexmk xdg-utils
+oder
+> sudo apt-get install whiptail latexmk xdg-utils
+
+Für LaTeX wird das Paket g-brief benötigt (https://ctan.org/pkg/g-brief?lang=de).
 
 # Video
 
